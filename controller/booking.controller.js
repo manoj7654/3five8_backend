@@ -79,7 +79,20 @@ const bookingFacility = (req, res) => {
   }
 };
 
+const gettingAllData=async(req,res)=>{
+  try {
+    const result=getBookings().find((ele)=>{
+      return ele
+    })
+    return res.status(200).json({message:result})
+  } catch (error) {
+    return res.status(500).json({ message: 'Unable to fetch data' });
+  }
+}
+
+
 //  exporting 
 module.exports = {
     bookingFacility,
+    gettingAllData
 };
